@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lose Your Money</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="void-bg"></div>
+    <div class="tooltip" id="tooltip"></div>
+
+    <div class="nav">
+        <button id="navBtn">View Leaderboard</button>
+        <button id="voidBrowserBtn" class="void-browse-btn" style="margin-left: 10px; display: none;">Browse Void</button>
+    </div>
+
+    <!-- Congratulations Popup -->
+    <div class="congrats-popup" id="congratsPopup">
+        <div class="congrats-content">
+            <div class="congrats-icon">🎉</div>
+            <h2>Congratulations!</h2>
+            <p class="congrats-message">You successfully lost your money!</p>
+            <div class="congrats-details">
+                <div class="detail-item">
+                    <strong>Amount Lost:</strong>
+                    <span id="congratsAmount"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Date & Time:</strong>
+                    <span id="congratsDate"></span>
+                </div>
+                <div class="detail-item">
+                    <strong>Leaderboard Position:</strong>
+                    <span id="congratsRank"></span>
+                </div>
+            </div>
+            <button class="congrats-close" id="congratsClose">View in Void</button>
+        </div>
+    </div>
+
+    <div class="page active" id="mainPage">
+        <div class="container">
+            <div class="content">
+                <h1>Lose Your Money</h1>
+                <p>Welcome to the most pointless financial decision you'll ever make. Here, you can voluntarily throw your hard-earned money into the void, never to be seen again. No refunds, no rewards, just pure, unadulterated loss.</p>
+                <p>Join the ranks of financial daredevils who've already sacrificed their cash to the abyss. Will you be next?</p>
+                <button class="lose-btn" id="loseBtn">Lose Your Money</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="page" id="leaderboardPage">
+        <div class="container">
+            <div class="leaderboard">
+                <h2>Hall of Financial Shame</h2>
+                <p class="leaderboard-hint">💡 Click any entry to view it in the void</p>
+                <div id="leaderboardList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Void Browser Overlay -->
+    <div class="void-browser-overlay" id="voidBrowserOverlay">
+        <div class="void-browser">
+            <div class="void-controls">
+                <button id="exitVoid">✕ Exit</button>
+                <button id="zoomIn">🔍 +</button>
+                <button id="zoomOut">🔍 -</button>
+                <button id="resetView">↺ Reset</button>
+                <div class="zoom-level">Zoom: <span id="zoomLevel">100%</span></div>
+            </div>
+            <canvas id="voidCanvas"></canvas>
+            <div class="void-info" id="voidInfo">
+                <p>Click and drag to pan • Scroll to zoom • Click entries to see details</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <h2>Lose Your Money</h2>
+            <p style="color: #9ca3af; margin-bottom: 28px; font-size: 15px;">Enter the amount you wish to lose forever:</p>
+            <input type="number" id="amountInput" placeholder="Amount ($)" min="0.01" step="0.01">
+            <input type="text" id="nameInput" placeholder="Your Name (optional)" maxlength="50">
+
+            <div class="modal-buttons">
+                <button class="cancel-btn" id="cancelBtn">Cancel</button>
+                <button class="confirm-btn" id="confirmBtn">Lose It!</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
